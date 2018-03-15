@@ -7,6 +7,10 @@ Rails.application.routes.draw do
 
   get 'checkout' => 'cart#checkout'
 
+  put 'edit_cart' => 'cart#edit_cart'
+
+  delete 'remove_from_cart' => 'cart#remove_from_cart'
+
   devise_for :users
   root 'storefront#all_items'
 

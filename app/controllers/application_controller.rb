@@ -5,7 +5,13 @@ class ApplicationController < ActionController::Base
 
   before_action :categories, :brands
 
-
+  def current_order
+    if !session[:order_id].nil?
+      Order.find(session[:order_id])
+    else
+      Order.new
+    end
+  end
 
   def categories
     @categories = Category.order(:name)
